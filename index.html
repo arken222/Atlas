@@ -830,8 +830,7 @@ async function callClaude(userText){
   msgs.push({role:'user',content:userText});
   const res=await fetch('https://api.anthropic.com/v1/messages',{
     method:'POST',
-    headers:{'Content-Type':'application/json','x-api-key':'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','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:sys,messages:msgs})
+    headers:{'Content-Type':'application/json','x-api-key':'sk-ant-api03-sVLXB5JuAAqut1nAIvnGMMLCFdrpul6dUzzp5y1rshbHMQRWoQvI0ybNCmvRaCHE_Om2Rtl941k5zdwxFr3nzw-3AGUigA','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
   });
   const data=await res.json();
   return data.content?.map(b=>b.text||'').join('')||'Ошибка ответа.';
